@@ -1,0 +1,19 @@
+// 覆盖 @vant/weapp 一些样式
+.popup-number-picker {
+	.left-icon {
+		font-size: 16px;
+	}
+
+	.van-icon {
+		margin-right: 4px;
+		top: 2px;
+	}
+}
+
+.me {
+	.body {
+		.vant-cell-index--van-cell__left-icon {
+			color: $primary;
+		}
+	}
+}

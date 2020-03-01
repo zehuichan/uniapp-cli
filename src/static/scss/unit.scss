@@ -1,0 +1,101 @@
+.fr {
+	float: right;
+}
+
+.fl {
+	float: left;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-left {
+	text-align: left;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.text-bold {
+	font-weight: 500;
+}
+
+.text-primary {
+	color: $primary;
+}
+
+.text-text {
+	color: $text;
+}
+
+.text-l {
+	color: $text-l;
+}
+
+.text-ll {
+	color: $text-ll;
+}
+
+.text-lll {
+	color: $text-lll;
+}
+
+.text-12 {
+	font-size: $font12;
+}
+
+.text-14 {
+	font-size: $font14;
+}
+
+.text-16 {
+	font-size: $font16;
+}
+
+.box-shadow {
+	border-radius: 8rpx;
+	
+	&.base {
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
+	}
+
+	&.light {
+		box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+	}
+}
+
+.bg-white {
+	background-color: #fff;
+}
+
+.bg-primary {
+	background-color: $primary;
+	color: #ffffff;
+}
+
+.bg-auxiliary-primary {
+	background-color: $auxiliary-primary;
+	color: #ffffff;
+}
+
+.bg-auxiliary-success {
+	background-color: $auxiliary-success;
+	color: #ffffff;
+}
+
+.bg-auxiliary-danger {
+	background-color: $auxiliary-danger;
+	color: #ffffff;
+}
+
+.bg-auxiliary-warning {
+	background-color: $auxiliary-warning;
+	color: #ffffff;
+}
+
+.bg-auxiliary-default {
+	background-color: $auxiliary-default;
+	color: #ffffff;
+}

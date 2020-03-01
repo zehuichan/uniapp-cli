@@ -1,0 +1,96 @@
+@import './unit.scss';
+@import './tap.scss';
+@import './vant-ui.scss';
+@import '../fonts/iconfont.css';
+
+page {
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif,
+		'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+	line-height: 1.5;
+	color: $text;
+	background-color: #f4f4f4;
+	height: 100%;
+}
+
+view,
+scroll-view,
+swiper,
+button,
+input,
+textarea,
+label,
+navigator,
+image {
+	box-sizing: border-box;
+}
+
+.page-wrapper {
+	padding: 0 20rpx;
+
+	&.padded {
+		padding: 20rpx;
+	}
+}
+
+.btn-wrapper {
+	width: 100%;
+
+	&.fixed-bottom {
+		position: fixed;
+		left: 0;
+		bottom: 0;
+	}
+
+	&.padded {
+		padding: 32rpx;
+	}
+
+	&.tool-bar {
+		background-color: #fff;
+		padding: 8px;
+		text-align: right;
+	}
+
+	.van-button + .van-button {
+		margin-left: 8px;
+	}
+}
+
+.search-bar {
+	width: 100%;
+	height: 54px;
+	display: flex;
+	background-color: #fff;
+
+	&.fixed {
+		position: fixed;
+		top: 0;
+		z-index: 10;
+	}
+
+	.search-icon {
+		width: 44px;
+		text-align: center;
+		margin: 10px 10px 10px 0;
+
+		.iconfont {
+			font-size: 24px;
+			line-height: 33px;
+		}
+	}
+
+	.search-field {
+		flex: 1;
+
+		&.search-field__alone {
+			.van-search {
+			}
+		}
+
+		&.search-field__value {
+			.van-search {
+				padding-right: 0;
+			}
+		}
+	}
+}

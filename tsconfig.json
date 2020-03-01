@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    "paths": {
+      "@vant/weapp/*": ["./node_modules/@vant/weapp/dist/*"]
+    },
     "types": [
       "uni-app",
       "html5plus",
