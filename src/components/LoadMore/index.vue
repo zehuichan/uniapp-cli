@@ -33,20 +33,5 @@ export default {
 </script>
 
 <style lang="scss">
-.van-list__error-text,
-.van-list__finished-text,
-.van-list__loading {
-	color: #969799;
-	font-size: 14px;
-	line-height: 50px;
-	text-align: center;
-}
-
-.van-loading__text {
-	display: inline-block;
-	margin-left: 10px;
-	color: #969799;
-	font-size: 14px;
-	vertical-align: middle;
-}
+	
 </style>

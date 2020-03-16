@@ -42,6 +42,26 @@
 	color: $text-lll;
 }
 
+.text-auxiliary-primary {
+	color: $auxiliary-primary;
+}
+
+.text-auxiliary-success {
+	color: $auxiliary-success;
+}
+
+.text-auxiliary-danger {
+	color: $auxiliary-danger;
+}
+
+.text-auxiliary-warning {
+	color: $auxiliary-warning;
+}
+
+.text-auxiliary-default {
+	color: $auxiliary-default;
+}
+
 .text-12 {
 	font-size: $font12;
 }
@@ -56,13 +76,25 @@
 
 .box-shadow {
 	border-radius: 8rpx;
-	
+
 	&.base {
 		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
 	}
 
 	&.light {
 		box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+	}
+
+	&.showad-1-down {
+		box-shadow: $shadow-1-down;
+	}
+
+	&.showad-2-down {
+		box-shadow: $shadow-2-down;
+	}
+
+	&.showad-3-down {
+		box-shadow: $shadow-3-down;
 	}
 }
 

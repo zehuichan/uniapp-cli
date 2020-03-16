@@ -4,12 +4,12 @@
 			<view class="iconfont icon-brand van-cell__left-icon"></view>
 			<view class="van-cell__value van-cell__value--alone">
 				<view class="van-clearfix">
-					<view class="contact-cell__name fl">{{ value.contactName }}</view>
-					<view class="contact-cell__phone fr">{{ value.contactTel }}</view>
+					<view class="contact-cell__name fl">{{ value.name }}</view>
+					<view class="contact-cell__phone fr">{{ value.phone | formatPhone }}</view>
 				</view>
-				<view class="contact-cell__address van-ellipsis">公司名称：{{ value.orgName }}</view>
+				<view class="contact-cell__address van-ellipsis">{{ value.address }}</view>
 			</view>
-			<view class="van-cell__right-icon"><van-icon name="arrow" /></view>
+			<view class="van-cell__right-icon"><van-icon name="arrow" v-if="!disabled"/></view>
 		</view>
 		<view class="contact-cell contact-cell--add" v-else>
 			<view class="van-cell__left-icon"><van-icon name="add-square" size="40" /></view>
@@ -23,7 +23,11 @@
 export default {
 	name: 'ContactCard',
 	props: {
-		value: Object
+		value: Object,
+		disabled: {
+			type: Boolean,
+			default: false
+		}
 	}
 };
 </script>

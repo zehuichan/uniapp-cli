@@ -26,7 +26,7 @@
   import Product from '@/components/Product/index.vue'
   import LoadMore from '@/components/LoadMore/index.vue'
   // mockData
-  import {list} from './mock'
+  import {list} from './mock.js'
 
   export default {
     data() {
