@@ -66,12 +66,6 @@
       onChange(productId, event) {
         this['cart/changeItems']({productId: productId, count: event.detail})
       },
-      onPlus(productId) {
-        this['cart/updateItems']({productId: productId, count: 1})
-      },
-      onMinus(productId) {
-        this['cart/updateItems']({productId: productId, count: -1})
-      },
       onOverlimit(productId, event) {
         const self = this
         if (event.detail === 'plus') {

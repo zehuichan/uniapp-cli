@@ -1,11 +1,11 @@
 const state = {
-	loading: false
+  loading: false
 }
 
 const mutations = {
-	SET_LOADING_STATE: (state, flag) => {
-		state.loading = flag
-	},
+  SET_LOADING_STATE(state, flag) {
+    state.loading = flag
+  },
 }
 
 const actions = {
@@ -13,7 +13,7 @@ const actions = {
 }
 
 export default {
-	state,
-	mutations,
-	actions
+  state,
+  mutations,
+  actions
 }

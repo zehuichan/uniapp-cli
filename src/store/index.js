@@ -5,6 +5,7 @@ import Vuex from 'vuex'
 import app from './modules/app'
 import user from './modules/user'
 import cart from './modules/cart'
+import address from './modules/address'
 
 // getters
 import getters from './getters'
@@ -16,6 +17,7 @@ const store = new Vuex.Store({
     app,
     user,
     cart,
+    address,
   },
   getters
 })

@@ -45,13 +45,19 @@
 		{
 			"path": "pages/my/my",
 			"style": {
-
+				"navigationBarTitleText": ""
 			}
 		},
 		{
 			"path": "pages/my/account",
 			"style": {
 				"navigationBarTitleText": "我的资料"
+			}
+		},
+		{
+			"path": "pages/my/account-nickname",
+			"style": {
+				"navigationBarTitleText": "更改昵称"
 			}
 		},
 		{
@@ -76,6 +82,12 @@
 			"path": "pages/my/coupon",
 			"style": {
 				"navigationBarTitleText": "卡券管理"
+			}
+		},
+		{
+			"path": "pages/my/address",
+			"style": {
+				"navigationBarTitleText": "地址管理"
 			}
 		}
 	],
@@ -114,6 +126,10 @@
 				"path": "pages/my/account"
 			},
 			{
+				"name": "my/account-nickname",
+				"path": "pages/my/account-nickname"
+			},
+			{
 				"name": "my/order-list",
 				"path": "pages/my/order-list"
 			},
@@ -128,6 +144,10 @@
 			{
 				"name": "my/coupon",
 				"path": "pages/my/coupon"
+			},
+			{
+				"name": "my/address",
+				"path": "pages/my/address"
 			}
 		]
 	},
@@ -138,7 +158,7 @@
 		"backgroundColor": "#FFFFFF",
 		"usingComponents": {
 			// vant weapp v1.0.6 2020-02-24
-			// 这里为方便，全局引入了所有组件，也可以在某个page下单独引用某个组件	
+			// 这里为方便，全局引入了所有组件，也可以在某个page下单独引用某个组件
 
 			// 基础组件
 			"van-button": "/wxcomponents/vant/dist/button/index",

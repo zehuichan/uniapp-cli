@@ -1,20 +1,21 @@
 const getters = {
-	// app
-	loading: state => state.app.loading,
+  // app
+  loading: state => state.app.loading,
 
-	// user
-	avatar: state => state.user.avatar,
-	mobile: state => state.user.mobile,
-	email: state => state.user.email,
+  // user
+  avatar: state => state.user.avatar,
+  mobile: state => state.user.mobile,
+  gender: state => state.user.gender,
+  birthday: state => state.user.birthday,
+  nickname: state => state.user.nickname,
 
-	orgId: state => state.user.orgId,
-	orgName: state => state.user.orgName,
+  // shopCart
+  items: state => state.cart.items,
 
-	userId: state => state.user.userId,
-	name: state => state.user.name,
+  // address
+  address_list: state => state.address.address_list,
+  chosen_address: state => state.address.chosen_address,
 
-	// shopCart
-	items: state => state.cart.items
 }
 
 export default getters
