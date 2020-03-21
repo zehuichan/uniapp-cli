@@ -117,7 +117,7 @@ export default {
       text-align: center;
 
       .my-order-tab--item {
-        padding: 20 rpx 0;
+        padding: 20rpx 0;
       }
 
       .icon {
