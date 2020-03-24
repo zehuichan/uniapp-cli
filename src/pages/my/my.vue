@@ -88,7 +88,7 @@ export default {
 .my {
   .my-header {
     background-size: cover;
-    padding: 48rpx 32rpx;
+    padding: 224rpx 32rpx 48rpx;
     display: flex;
     align-items: center;
 

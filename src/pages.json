@@ -3,49 +3,51 @@
     {
       "path": "pages/home/home",
       "style": {
-        "navigationBarTitleText": ""
       }
     },
     {
       "path": "pages/home/search",
       "style": {
-				"navigationBarTitleText": ""
       }
     },
     {
       "path": "pages/product/list",
       "style": {
-        "navigationBarTitleText": ""
       }
     },
     {
       "path": "pages/product/detail",
       "style": {
-        "navigationBarTitleText": ""
       }
     },
     {
       "path": "pages/sort/index",
       "style": {
-        "navigationBarTitleText": ""
+        "navigationBarTitleText": "分类"
       }
     },
     {
       "path": "pages/circle/index",
       "style": {
-        "navigationBarTitleText": ""
+        "navigationBarTitleText": "圈子"
       }
     },
     {
       "path": "pages/cart/index",
       "style": {
-				"navigationBarTitleText": ""
+        "navigationBarTitleText": "购物车"
+      }
+    },
+    {
+      "path": "pages/preorder/index",
+      "style": {
+        "navigationBarTitleText": "确认订单"
       }
     },
     {
       "path": "pages/my/my",
       "style": {
-        "navigationBarTitleText": ""
+				"navigationStyle": "custom"
       }
     },
     {
@@ -118,6 +120,10 @@
         "path": "pages/cart/index"
       },
       {
+        "name": "preorder",
+        "path": "pages/preorder/index"
+      },
+      {
         "name": "my/my",
         "path": "pages/my/my"
       },
@@ -153,7 +159,7 @@
   },
   "globalStyle": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "uni-app",
+    "navigationBarTitleText": "uniapp-tpl",
     "navigationBarBackgroundColor": "#FFFFFF",
     "backgroundColor": "#FFFFFF",
     "usingComponents": {
