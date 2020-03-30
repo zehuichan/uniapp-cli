@@ -29,7 +29,6 @@ Object.keys(filters).forEach((key) => {
 	Vue.filter(key, filters[key])
 })
 
-
 Vue.prototype.$store = store
 Vue.prototype.$navigateTo = _navigateTo
 

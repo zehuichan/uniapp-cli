@@ -6,8 +6,7 @@ import {
 import {
   saveToLocal,
   loadFromLocal,
-  removeFromLocal,
-  parseTime
+  removeFromLocal
 } from '@/utils/index.js'
 
 const state = {

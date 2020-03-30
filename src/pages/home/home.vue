@@ -19,6 +19,7 @@
         <van-image width="100%" height="170rpx" src="https://mall.s.maizuo.com/80a7da098548191c431dfd09c50f9e4b.jpg?x-oss-process=image/resize,w_563"></van-image>
       </view>
     </view>
+
     <!-- 可配置一个或多个专题 -->
     <view class="topic" v-for="(elem, index) in topics" :key="index">
       <view class="topic-header van-clearfix">

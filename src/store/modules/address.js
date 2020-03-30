@@ -1,4 +1,5 @@
-const data = [{
+const data = [
+  {
   "address": "黄园二街",
   "standardAddress": "",
   "cityId": 440100,
@@ -59,7 +60,6 @@ const data = [{
   "districtName": "南海区",
   "provinceName": "广东省"
 }]
-
 
 const state = {
   address_list: data,
