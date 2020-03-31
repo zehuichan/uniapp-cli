@@ -1,6 +1,6 @@
 <template>
   <van-checkbox-group :value="checked" @change="onCheckboxGroupChange">
-    <view class="product-card has-checkbox" :class="classes" v-for="(item, index) in items" :key="index">
+    <view class="product-card has-checkbox" v-for="(item, index) in items" :key="index">
       <van-checkbox class="checker" :name="item.productId" checked-color="#c03131" />
       <van-card
         custom-class="body"
