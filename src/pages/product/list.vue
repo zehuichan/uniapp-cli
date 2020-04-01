@@ -38,7 +38,6 @@
       }
     },
     onLoad() {
-
       this._getProducts()
     },
     methods: {
