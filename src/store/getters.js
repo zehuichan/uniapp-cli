@@ -12,7 +12,7 @@ const getters = {
   // shopCart
   items: state => state.cart.items,
   items_length: state => {
-    return state.cart.items.reduce((prev, curr) => curr.count + prev, 0)
+    return state.cart.items.reduce((prev, curr) => ~~curr.count + prev, 0)
   },
 
   // address
