@@ -2,23 +2,25 @@
   "pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
     {
       "path": "pages/home/home",
-      "style": {
-      }
+      "style": {}
     },
     {
       "path": "pages/home/search",
+      "style": {}
+    },
+    {
+      "path": "pages/home/comments",
       "style": {
+        "navigationBarTitleText": "消息"
       }
     },
     {
       "path": "pages/product/list",
-      "style": {
-      }
+      "style": {}
     },
     {
       "path": "pages/product/detail",
-      "style": {
-      }
+      "style": {}
     },
     {
       "path": "pages/sort/index",
@@ -47,7 +49,7 @@
     {
       "path": "pages/my/my",
       "style": {
-				"navigationStyle": "custom"
+        "navigationStyle": "custom"
       }
     },
     {
@@ -102,6 +104,10 @@
       {
         "name": "home/search",
         "path": "pages/home/search"
+      },
+      {
+        "name": "home/comments",
+        "path": "pages/home/comments"
       },
       {
         "name": "product/list",
@@ -163,7 +169,7 @@
     "navigationBarBackgroundColor": "#FFFFFF",
     "backgroundColor": "#FFFFFF",
     "usingComponents": {
-      // vant weapp v1.1.0 2020-3-21
+      // vant weapp v1.2.2 2020-04-21
       // 这里为方便，全局引入了所有组件，也可以在某个page下单独引用某个组件
 
       // 基础组件

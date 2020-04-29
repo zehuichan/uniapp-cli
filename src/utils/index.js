@@ -169,6 +169,18 @@ export function _navigateTo(url, json) {
 	});
 }
 
+export function _redirectTo(url, json) {
+	uni.redirectTo({
+		url: `${url}?${param(json)}`
+	});
+}
+
+export function _reLaunch(url, json) {
+	uni.reLaunch({
+		url: `${url}?${param(json)}`
+	});
+}
+
 export function getByteLen(val) {
   let len = 0
   for (let i = 0; i < val.length; i++) {

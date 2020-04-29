@@ -1,8 +1,9 @@
 <template>
   <view class="home">
     <view class="search-bar fixed">
-      <view class="search-field search-field__value"><van-search :label="city" placeholder="搜索" readonly @click.native="onClick('../home/search')"></van-search></view>
       <view class="search-icon tap-active" @click="scan"><text class="iconfont icon-scanning"></text></view>
+      <view class="search-field search-field__value"><van-search :label="city" placeholder="搜索" readonly @click.native="onClick('../home/search')"></van-search></view>
+      <view class="search-icon tap-active" @click="onClick('../home/comments')"><text class="iconfont icon-comments"></text></view>
     </view>
     <view class="swiper">
       <view class="swiper-box">
