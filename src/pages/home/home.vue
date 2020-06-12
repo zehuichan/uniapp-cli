@@ -121,21 +121,17 @@ export default {
     // 定位
     _getLocation() {
       const self = this;
-      uni.authorize({
-        scope: 'scope.userLocation',
-        success() {
-          uni.getLocation({
-            type: 'gcj02',
-            geocode: true,
-            success(res) {
-              console.log(res);
-              self.location = `${res.longitude},${res.latitude}`;
-            },
-            fail() {
-              self.city = '定位失败';
-            }
-          });
+      uni.getLocation({
+        type: 'gcj02',
+        geocode: true,
+        success(res) {
+          console.log(res);
+          self.location = `${res.longitude},${res.latitude}`;
+        },
+        fail() {
+          self.city = '定位失败';
         }
+        
       });
     },
     _getRegeo() {

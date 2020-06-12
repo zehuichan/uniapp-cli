@@ -169,7 +169,7 @@
     "navigationBarBackgroundColor": "#FFFFFF",
     "backgroundColor": "#FFFFFF",
     "usingComponents": {
-      // vant weapp v1.3.1 2020-05-24
+      // vant weapp v1.3.2 2020-06-04
       // 这里为方便，全局引入了所有组件，也可以在某个page下单独引用某个组件
 
       // 基础组件
