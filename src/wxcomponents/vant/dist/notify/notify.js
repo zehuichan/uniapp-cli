@@ -14,6 +14,9 @@ const defaultOptions = {
   onClose: () => {},
 };
 function parseOptions(message) {
+  if (message == null) {
+    return {};
+  }
   return typeof message === 'string' ? { message } : message;
 }
 function getContext() {
@@ -31,7 +34,7 @@ export default function Notify(options) {
   delete options.selector;
   if (notify) {
     notify.setData(options);
-    notify.showNotify();
+    notify.show();
     return notify;
   }
   console.warn('未找到 van-notify 节点，请确认 selector 及 context 是否正确');

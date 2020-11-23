@@ -1,6 +1,7 @@
 import { VantComponent } from '../common/component';
-import { isImageFile, isVideo, chooseFile, isPromise } from './utils';
+import { isImageFile, chooseFile, isVideoFile } from './utils';
 import { chooseImageProps, chooseVideoProps } from './shared';
+import { isBoolean, isPromise } from '../common/validator';
 VantComponent({
   props: Object.assign(
     Object.assign(
@@ -13,7 +14,7 @@ VantComponent({
         beforeRead: null,
         previewSize: {
           type: null,
-          value: 90,
+          value: 80,
         },
         name: {
           type: [Number, String],
@@ -74,10 +75,9 @@ VantComponent({
       const { fileList = [], maxCount } = this.data;
       const lists = fileList.map((item) =>
         Object.assign(Object.assign({}, item), {
-          isImage:
-            typeof item.isImage === 'undefined'
-              ? isImageFile(item)
-              : item.isImage,
+          isImage: isImageFile(item),
+          isVideo: isVideoFile(item),
+          deletable: isBoolean(item.deletable) ? item.deletable : true,
         })
       );
       this.setData({ lists, isInCount: lists.length < maxCount });
@@ -89,7 +89,7 @@ VantComponent({
       };
     },
     startUpload() {
-      const { maxCount, multiple, accept, lists, disabled } = this.data;
+      const { maxCount, multiple, lists, disabled } = this.data;
       if (disabled) return;
       chooseFile(
         Object.assign(Object.assign({}, this.data), {
@@ -97,13 +97,7 @@ VantComponent({
         })
       )
         .then((res) => {
-          let file = null;
-          if (isVideo(res, accept)) {
-            file = Object.assign({ path: res.tempFilePath }, res);
-          } else {
-            file = multiple ? res.tempFiles : res.tempFiles[0];
-          }
-          this.onBeforeRead(file);
+          this.onBeforeRead(multiple ? res : res[0]);
         })
         .catch((error) => {
           this.$emit('error', error);
@@ -137,7 +131,7 @@ VantComponent({
       }
     },
     onAfterRead(file) {
-      const { maxSize } = this.data;
+      const { maxSize, afterRead } = this.data;
       const oversize = Array.isArray(file)
         ? file.some((item) => item.size > maxSize)
         : file.size > maxSize;
@@ -145,8 +139,8 @@ VantComponent({
         this.$emit('oversize', Object.assign({ file }, this.getDetail()));
         return;
       }
-      if (typeof this.data.afterRead === 'function') {
-        this.data.afterRead(file, this.getDetail());
+      if (typeof afterRead === 'function') {
+        afterRead(file, this.getDetail());
       }
       this.$emit('after-read', Object.assign({ file }, this.getDetail()));
     },
@@ -165,12 +159,26 @@ VantComponent({
       const { lists } = this.data;
       const item = lists[index];
       wx.previewImage({
-        urls: lists
-          .filter((item) => item.isImage)
-          .map((item) => item.url || item.path),
-        current: item.url || item.path,
+        urls: lists.filter((item) => isImageFile(item)).map((item) => item.url),
+        current: item.url,
         fail() {
           wx.showToast({ title: '预览图片失败', icon: 'none' });
+        },
+      });
+    },
+    onPreviewVideo(event) {
+      if (!this.data.previewFullImage) return;
+      const { index } = event.currentTarget.dataset;
+      const { lists } = this.data;
+      wx.previewMedia({
+        sources: lists
+          .filter((item) => isVideoFile(item))
+          .map((item) =>
+            Object.assign(Object.assign({}, item), { type: 'video' })
+          ),
+        current: index,
+        fail() {
+          wx.showToast({ title: '预览视频失败', icon: 'none' });
         },
       });
     },

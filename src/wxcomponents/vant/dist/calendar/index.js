@@ -11,6 +11,7 @@ import {
   getDayByOffset,
 } from './utils';
 import Toast from '../toast/toast';
+import { requestAnimationFrame } from '../common/utils';
 VantComponent({
   props: {
     title: {
@@ -152,12 +153,12 @@ VantComponent({
         ];
       }
       if (type === 'multiple') {
-        return [defaultDate || minDate];
+        return defaultDate || [minDate];
       }
       return defaultDate || minDate;
     },
     scrollIntoView() {
-      setTimeout(() => {
+      requestAnimationFrame(() => {
         const {
           currentDate,
           type,
@@ -166,6 +167,7 @@ VantComponent({
           minDate,
           maxDate,
         } = this.data;
+        // @ts-ignore
         const targetDate = type === 'single' ? currentDate : currentDate[0];
         const displayed = show || !poppable;
         if (!targetDate || !displayed) {
@@ -179,7 +181,7 @@ VantComponent({
           }
           return false;
         });
-      }, 100);
+      });
     },
     onOpen() {
       this.$emit('open');
@@ -197,6 +199,7 @@ VantComponent({
       const { date } = event.detail;
       const { type, currentDate, allowSameDay } = this.data;
       if (type === 'range') {
+        // @ts-ignore
         const [startDay, endDay] = currentDate;
         if (startDay && !endDay) {
           const compareToStart = compareDay(date, startDay);
@@ -212,6 +215,7 @@ VantComponent({
         }
       } else if (type === 'multiple') {
         let selectedIndex;
+        // @ts-ignore
         const selected = currentDate.some((dateItem, index) => {
           const equal = compareDay(dateItem, date) === 0;
           if (equal) {
@@ -220,10 +224,12 @@ VantComponent({
           return equal;
         });
         if (selected) {
+          // @ts-ignore
           const cancelDate = currentDate.splice(selectedIndex, 1);
           this.setData({ currentDate });
           this.unselect(cancelDate);
         } else {
+          // @ts-ignore
           this.select([...currentDate, date]);
         }
       } else {
@@ -283,6 +289,7 @@ VantComponent({
         return;
       }
       wx.nextTick(() => {
+        // @ts-ignore
         this.$emit('confirm', copyDates(this.data.currentDate));
       });
     },
