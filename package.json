@@ -37,11 +37,10 @@
     "@dcloudio/uni-stat": "^2.0.0-29820201110001",
     "cos-wx-sdk-v5": "^0.7.11",
     "flyio": "^0.6.2",
-    "regenerator-runtime": "^0.12.1",
+    "regenerator-runtime": "^0.13.4",
     "tim-wx-sdk": "^2.8.5",
-    "vanilla-masker": "^1.2.0",
     "vue": "^2.6.12",
-    "vuex": "^3.5.1"
+    "vuex": "^3.6.0"
   },
   "devDependencies": {
     "@dcloudio/uni-cli-shared": "^2.0.0-29820201110001",

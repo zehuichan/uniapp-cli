@@ -1,12 +1,5 @@
-// vanilla-masker
-import mask from 'vanilla-masker'
-
 // set function parseTime,formatTime to filter
-export {
-  parseTime,
-  formatTime
-}
-from '@/utils'
+export {parseTime, formatTime} from '@/utils'
 
 function pluralize(time, label) {
   if (time === 1) {
@@ -26,7 +19,7 @@ export function timeAgo(time) {
   }
 }
 
-export function toThousandslsFilter(num) {
+export function toThousandFilter(num) {
   return (+num || 0).toString().replace(/^-?\d+/g, m => m.replace(/(?=(?!\b)(\d{3})+$)/g, ','))
 }
 
@@ -53,9 +46,4 @@ export function formatIdentity(number) {
 
 export function formatStatus(val) {
   return ['接单中', '行程中', '已完成', '已取消'][val]
-}
-
-// 15800066380 => 158 0006 6380
-export function maskerFilter(val = '', pattern) {
-  return mask.toPattern(val, pattern)
 }

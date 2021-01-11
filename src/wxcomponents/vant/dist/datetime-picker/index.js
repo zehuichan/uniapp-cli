@@ -1,5 +1,5 @@
 import { VantComponent } from '../common/component';
-import { isDef } from '../common/utils';
+import { isDef } from '../common/validator';
 import { pickerProps } from '../picker/shared';
 const currentYear = new Date().getFullYear();
 function isValidDate(date) {
@@ -20,6 +20,9 @@ function times(n, iteratee) {
   return result;
 }
 function getTrueValue(formattedValue) {
+  if (formattedValue === undefined) {
+    formattedValue = '1';
+  }
   while (isNaN(parseInt(formattedValue, 10))) {
     formattedValue = formattedValue.slice(1);
   }
