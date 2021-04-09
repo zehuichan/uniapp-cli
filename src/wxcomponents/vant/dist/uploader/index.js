@@ -17,7 +17,7 @@ VantComponent({
           value: 80,
         },
         name: {
-          type: [Number, String],
+          type: null,
           value: '',
         },
         accept: {
@@ -180,6 +180,13 @@ VantComponent({
         fail() {
           wx.showToast({ title: '预览视频失败', icon: 'none' });
         },
+      });
+    },
+    onPreviewFile(event) {
+      const { index } = event.currentTarget.dataset;
+      wx.openDocument({
+        filePath: this.data.lists[index].url,
+        showMenu: true,
       });
     },
     onClickPreview(event) {
