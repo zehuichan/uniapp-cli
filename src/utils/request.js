@@ -1,6 +1,13 @@
 const config = require('../../config')
 
-function http({ url, data, header = {}, method, timeout = 60 * 1000, dataType }) {
+function http({
+  url,
+  data,
+  header = {},
+  method,
+  timeout = 60 * 1000,
+  dataType
+}) {
   return new Promise((resolve, reject) => {
     uni.request({
       url: `${config.BASE_API}${url}`,
