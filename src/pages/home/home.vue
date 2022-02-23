@@ -82,199 +82,195 @@
 </template>
 
 <script>
-  // api
-  import { test } from '@/api/cart'
-  // components
-  import Product from '@/components/Product'
-  import Split from '@/components/Split'
+// api
+import { test } from '@/api/cart'
+// components
+import Product from '@/components/Product'
+import Split from '@/components/Split'
 
-  // mockData
-  import { banner, topics, guess } from './mock.js'
+// mockData
+import { banner, topics, guess } from './mock.js'
 
-  export default {
-    data() {
-      return {
-        location: '',
-        city: '定位中',
+export default {
+  data() {
+    return {
+      location: '',
+      city: '定位中',
 
-        current_swiper: 0,
-        banner: [],
-        topics: [],
-        guess: []
-      }
-    },
-    onLoad() {
-      // 定位
-      this._getLocation()
-      this._getRegeo()
-
-      this._getIndex()
-    },
-    methods: {
-      _getIndex() {
-        this.banner = banner.data
-        this.topics = topics.data
-        this.guess = guess.data.list
-      },
-      // 轮播图指示器
-      swiperChange(event) {
-        this.current_swiper = event.detail.current
-      },
-      // 跳转
-      onClick(url) {
-        this.$navigateTo(url)
-      },
-      // 扫码
-      scan() {
-        const self = this
-        uni.scanCode({
-          success(res) {
-            console.log('条码类型：' + res.scanType)
-            console.log('条码内容：' + res.result)
-          }
-        })
-      },
-      // 定位
-      _getLocation() {
-        const self = this
-        uni.getLocation({
-          type: 'gcj02',
-          geocode: true,
-          success(res) {
-            console.log(res)
-            self.location = `${res.longitude},${res.latitude}`
-          },
-          fail() {
-            self.city = '定位失败'
-          }
-
-        })
-      },
-      _getRegeo() {
-        const self = this
-        this.$amap.getRegeo({
-          location: self.location,
-          success(res) {
-            if (res && res.length > 0) {
-              const addressComponent = res[0].regeocodeData.addressComponent
-              self.city = addressComponent.city.replace(/市/g, '')
-            } else {
-              self.city = '定位失败'
-            }
-          },
-          fail(info) {
-            self.city = '定位失败'
-            Toast(JSON.stringify(info))
-          }
-        })
-      }
-    },
-    components: {
-      Product,
-      Split
+      current_swiper: 0,
+      banner: [],
+      topics: [],
+      guess: []
     }
+  },
+  onLoad() {
+    // 定位
+    this._getLocation()
+    this._getRegeo()
+
+    this._getIndex()
+  },
+  methods: {
+    _getIndex() {
+      this.banner = banner.data
+      this.topics = topics.data
+      this.guess = guess.data.list
+    },
+    // 轮播图指示器
+    swiperChange(event) {
+      this.current_swiper = event.detail.current
+    },
+    // 跳转
+    onClick(url) {
+      this.$navigateTo(url)
+    },
+    // 扫码
+    scan() {
+      uni.scanCode({
+        success(res) {
+          console.log('条码类型：' + res.scanType)
+          console.log('条码内容：' + res.result)
+        }
+      })
+    },
+    // 定位
+    _getLocation() {
+      uni.getLocation({
+        type: 'gcj02',
+        geocode: true,
+        success: (res) => {
+          console.log(res)
+          this.location = `${res.longitude},${res.latitude}`
+        },
+        fail: () => {
+          this.city = '定位失败'
+        }
+      })
+    },
+    _getRegeo() {
+      this.$amap.getRegeo({
+        location: this.location,
+        success: (res) => {
+          if (res && res.length > 0) {
+            // const addressComponent = res[0].regeocodeData.addressComponent
+            // this.city = addressComponent.city.replace(/市/g, '')
+            this.city = '定位失败'
+          } else {
+            this.city = '定位失败'
+          }
+        },
+        fail: (info) => {
+          this.city = '定位失败'
+        }
+      })
+    }
+  },
+  components: {
+    Product,
+    Split
   }
+}
 </script>
 
 <style lang="scss">
-  .home {
-    padding-top: 54px;
+.home {
+  padding-top: 54px;
+}
+
+.banner {
+  background-color: #f7f7f7;
+  padding: 16rpx 0;
+  width: 100%;
+  overflow: hidden;
+
+  .inner {
+    height: 170rpx;
+  }
+}
+
+.topic {
+  padding: 32rpx;
+  background-color: #fff;
+
+  & + .topic {
+    margin-top: 20rpx;
   }
 
-  .banner {
-    background-color: #f7f7f7;
-    padding: 16 rpx 0;
+  .topic-header {
+    &.mb {
+      margin-bottom: 32rpx;
+    }
+
+    .title {
+      font-weight: 500;
+    }
+
+    .more {
+      font-size: $font12;
+      color: $text-l;
+
+      text {
+        vertical-align: 1rpx;
+      }
+    }
+  }
+
+  .topic-banner {
+    margin: 32rpx 0;
+    height: 160rpx;
+    background-color: #e0e0e0;
+  }
+}
+
+.swiper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  .swiper-box {
     width: 100%;
     overflow: hidden;
+    //兼容ios，微信小程序
+    position: relative;
+    z-index: 1;
 
-    .inner {
-      height: 170 rpx;
-    }
-  }
-
-  .topic {
-    padding: 32 rpx;
-    background-color: #fff;
-
-    & + .topic {
-      margin-top: 20 rpx;
-    }
-
-    .topic-header {
-      &.mb {
-        margin-bottom: 32 rpx;
-      }
-
-      .title {
-        font-weight: 500;
-      }
-
-      .more {
-        font-size: $font12;
-        color: $text-l;
-
-        text {
-          vertical-align: 1 rpx;
-        }
-      }
-    }
-
-    .topic-banner {
-      margin: 32 rpx 0;
-      height: 160 rpx;
-      background-color: #e0e0e0;
-    }
-  }
-
-  .swiper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-
-    .swiper-box {
+    swiper {
       width: 100%;
-      overflow: hidden;
-      //兼容ios，微信小程序
-      position: relative;
-      z-index: 1;
+      height: 420rpx;
 
-      swiper {
-        width: 100%;
-        height: 420 rpx;
+      swiper-item {
+        color: #fff;
+        text-align: center;
+        line-height: 420rpx;
 
-        swiper-item {
-          color: #fff;
-          text-align: center;
-          line-height: 420 rpx;
-
-          image {
-            width: 100%;
-            height: 420 rpx;
-          }
+        image {
+          width: 100%;
+          height: 420rpx;
         }
       }
+    }
 
-      .indicator {
-        position: absolute;
-        bottom: 20 rpx;
-        right: 20 rpx;
-        background-color: rgba(255, 255, 255, 0.4);
-        width: 150 rpx;
-        height: 5 rpx;
-        border-radius: 3 rpx;
-        overflow: hidden;
-        display: flex;
+    .indicator {
+      position: absolute;
+      bottom: 20rpx;
+      right: 20rpx;
+      background-color: rgba(255, 255, 255, 0.4);
+      width: 150rpx;
+      height: 5rpx;
+      border-radius: 3rpx;
+      overflow: hidden;
+      display: flex;
 
-        .dots {
-          width: 0 rpx;
-          background-color: rgba(255, 255, 255, 1);
-          transition: all 0.3s ease-out;
+      .dots {
+        width: 0rpx;
+        background-color: rgba(255, 255, 255, 1);
+        transition: all 0.3s ease-out;
 
-          &.on {
-            width: (100% / 8);
-          }
+        &.on {
+          width: 100% / 8;
         }
       }
     }
   }
+}
 </style>
