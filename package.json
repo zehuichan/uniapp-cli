@@ -68,6 +68,6 @@
     "@vue/runtime-core": "3.4.21",
     "unocss": "^0.58.6",
     "unocss-preset-weapp": "^0.58.6",
-    "vite": "4.0.3"
+    "vite": "4.5.3"
   }
 }
